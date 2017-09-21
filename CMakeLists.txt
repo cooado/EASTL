@@ -68,9 +68,17 @@ target_include_directories(EASTL PUBLIC include)
 #-------------------------------------------------------------------------------------------
 target_link_libraries(EASTL EABase)
 
-#-------------------------------------------------------------------------------------------
-# Installation
-#-------------------------------------------------------------------------------------------
-install(TARGETS EASTL DESTINATION lib)
-install(DIRECTORY include/EASTL DESTINATION include)
-install(DIRECTORY test/packages/EABase/include/Common/EABase DESTINATION include)
+##-------------------------------------------------------------------------------------------
+## Installation
+##-------------------------------------------------------------------------------------------
+#install(TARGETS EASTL DESTINATION lib)
+#install(DIRECTORY include/EASTL DESTINATION include)
+#install(DIRECTORY test/packages/EABase/include/Common/EABase DESTINATION include)
+
+set_target_properties( EASTL PROPERTIES
+        OUTPUT_NAME_DEBUG "eastl_d"
+        PREFIX ""
+        FOLDER "eastl"
+        ARCHIVE_OUTPUT_DIRECTORY ${NFOutPutDir}
+        RUNTIME_OUTPUT_DIRECTORY ${NFOutPutDir}
+        LIBRARY_OUTPUT_DIRECTORY ${NFOutPutDir} )
